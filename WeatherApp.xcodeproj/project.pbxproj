@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60EBF6B5276A8E0400FAA40C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EBF6B4276A8E0400FAA40C /* Network.swift */; };
+		60EBF6B6276A8E0400FAA40C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EBF6B4276A8E0400FAA40C /* Network.swift */; };
+		60EBF6B8276A8E5A00FAA40C /* Weatherpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EBF6B7276A8E5A00FAA40C /* Weatherpoint.swift */; };
+		60EBF6B9276A8E5A00FAA40C /* Weatherpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EBF6B7276A8E5A00FAA40C /* Weatherpoint.swift */; };
+		60EBF6BB276A9F2F00FAA40C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EBF6BA276A9F2F00FAA40C /* Location.swift */; };
+		60EBF6BC276A9F2F00FAA40C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EBF6BA276A9F2F00FAA40C /* Location.swift */; };
 		60FA648C2763924E00C4AADC /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FA648B2763924E00C4AADC /* Tests_iOS.swift */; };
 		60FA648E2763924E00C4AADC /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FA648D2763924E00C4AADC /* Tests_iOSLaunchTests.swift */; };
 		60FA64982763924E00C4AADC /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FA64972763924E00C4AADC /* Tests_macOS.swift */; };
@@ -37,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		60EBF6B4276A8E0400FAA40C /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		60EBF6B7276A8E5A00FAA40C /* Weatherpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weatherpoint.swift; sourceTree = "<group>"; };
+		60EBF6BA276A9F2F00FAA40C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		60FA64732763924D00C4AADC /* WeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppApp.swift; sourceTree = "<group>"; };
 		60FA64742763924D00C4AADC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		60FA64752763924E00C4AADC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +109,9 @@
 				60FA64732763924D00C4AADC /* WeatherAppApp.swift */,
 				60FA64742763924D00C4AADC /* ContentView.swift */,
 				60FA64752763924E00C4AADC /* Assets.xcassets */,
+				60EBF6B4276A8E0400FAA40C /* Network.swift */,
+				60EBF6B7276A8E5A00FAA40C /* Weatherpoint.swift */,
+				60EBF6BA276A9F2F00FAA40C /* Location.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -301,6 +313,9 @@
 			files = (
 				60FA649D2763924E00C4AADC /* ContentView.swift in Sources */,
 				60FA649B2763924E00C4AADC /* WeatherAppApp.swift in Sources */,
+				60EBF6BB276A9F2F00FAA40C /* Location.swift in Sources */,
+				60EBF6B5276A8E0400FAA40C /* Network.swift in Sources */,
+				60EBF6B8276A8E5A00FAA40C /* Weatherpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +325,9 @@
 			files = (
 				60FA649E2763924E00C4AADC /* ContentView.swift in Sources */,
 				60FA649C2763924E00C4AADC /* WeatherAppApp.swift in Sources */,
+				60EBF6BC276A9F2F00FAA40C /* Location.swift in Sources */,
+				60EBF6B6276A8E0400FAA40C /* Network.swift in Sources */,
+				60EBF6B9276A8E5A00FAA40C /* Weatherpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
