@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct WeatherAppApp: App {
-    var network = Network()
+    var apiFriend = ApiFriend()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(network)
+                .environmentObject(apiFriend)
         }
     }
 }
