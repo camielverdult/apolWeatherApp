@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WeatherModelView: View {
+struct WeatherpointScrollView: View {
     
     @EnvironmentObject var apiFriend: ApiFriend
     
@@ -31,18 +31,17 @@ struct WeatherModelView: View {
                     }
                     .frame(width: 300, alignment: .leading)
                     .padding()
-                    .background(Color(#colorLiteral(red: 0.6667672396, green: 0.7527905703, blue: 1, alpha: 0.2662717301)))
+                    .background(Color.accentColor.opacity(0.3))
                     .cornerRadius(20)
                 }
-            }
+            }.padding(20)
         }
     }
 }
 
 struct WeatherModelView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherModelView()
+        WeatherpointScrollView()
             .environmentObject(ApiFriend())
-
     }
 }
