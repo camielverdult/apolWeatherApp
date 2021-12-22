@@ -106,7 +106,30 @@ class ApiFriend: ObservableObject {
     }
     
     func sortWeatherpoints() -> Void {
+        var convertedArray: [Date] = []
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+
+        for dat in self.parsedPoints {
+            let date = dateFormatter.date(from: dat.metadata.utcTimeStamp.replacingOccurrences(of: "T", with: " "))
+            
+            if let date = date {
+                convertedArray.append(date)
+            }
+        }
+
+        let ready = convertedArray.sorted(by: { $0.compare($1) == .orderedDescending })
+
+        print(ready)
+    }
+    
+    func formatTimeString(timeString: String) -> String {
+        let split = timeString.split(separator: "T")
         
+        let timePart = split[0].split(separator: "-")
+        
+        return "\(split[1]) \(timePart[2])-\(timePart[1])-\(timePart[0])"
     }
     
     func buildWeatherPoints() -> Void {
@@ -115,10 +138,13 @@ class ApiFriend: ObservableObject {
         
         self.getWeatherpoints(blocker: blocker)
         self.getLocations(blocker: blocker)
+        self.sortWeatherpoints()
 
         print("Rebuilding to WeatherData with unique id...")
 
-        for point in self.parsedPoints {
+        for var point in self.parsedPoints {
+            
+            point.metadata.utcTimeStamp = self.formatTimeString(timeString: point.metadata.utcTimeStamp)
             
             var locationForWeatherpoint = Location(City: "Earth", deviceID: "lht-mars", deviceNumber: 0)
             
@@ -168,7 +194,7 @@ struct WeatherData: Identifiable {
 }
 
 struct PointParsed: Codable {
-    let metadata: Metadata
+    var metadata: Metadata
     let positional: Positional
     let sensorData: SensorData
     let transmissionalData: TransmissionalData
@@ -181,7 +207,7 @@ struct MetadataExtra: Codable {
 
 // MARK: - Metadata
 struct Metadata: Codable {
-    let utcTimeStamp, deviceID, applicationID, gatewayID: String
+    var utcTimeStamp, deviceID, applicationID, gatewayID: String
 }
 
 // MARK: - Positional
