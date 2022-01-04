@@ -9,7 +9,11 @@ import SwiftUI
 
 @main
 struct WeatherAppApp: App {
-    var apiFriend = ApiFriend()
+    var apiFriend: ApiFriend = ApiFriend()
+    
+    init() {
+        apiFriend.initialise()
+    }
     
     var body: some Scene {
         WindowGroup {

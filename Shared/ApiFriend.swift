@@ -62,6 +62,56 @@ class ApiFriend: ObservableObject {
             ...
         ]
     */
+    
+    struct City: Identifiable {
+        let id: UUID
+        let name: String
+    }
+    
+    func getCities() -> [City] {
+        /// This functions will find all distinct cities in our weather points
+        // Figure out the name of our cities
+        var locations: [String] = []
+        
+        for weatherDatum in weatherData {
+            if (!locations.contains(weatherDatum.metadata.LocationData.City)) {
+                locations.append(weatherDatum.metadata.LocationData.City)
+            }
+        }
+        
+        // Put our city names into city object, which are identifiable
+        // because swift likes it to be this way
+        var cities: [City] = []
+        
+        for cityName in locations {
+            cities.append(City(id: UUID(), name: cityName))
+        }
+        
+        return cities
+    }
+    
+    func getWeatherpoints(forCity: City) -> [WeatherData] {
+        /// This function returns all weatherpoints in a parsed city
+        var weatherPoints: [WeatherData] = []
+        
+        for weatherDatum in weatherData {
+            if (weatherDatum.metadata.LocationData.City == forCity.name) {
+                weatherPoints.append(weatherDatum)
+            }
+        }
+        
+        return weatherPoints
+    }
+    
+    func getTemperatures(forCity: City) -> [Double] {
+        var temperatures: [Double] = []
+        
+        for weatherDatum in self.getWeatherpoints(forCity: forCity) {
+            temperatures.append(weatherDatum.sensorData.temperature)
+        }
+        
+        return temperatures
+    }
 
     func getWeatherpoints(blocker: DispatchSemaphore) -> Void {
         /// This function will get the latest 24 hour of weatherpoints from the API and parse the JSON to PointParsed classes
@@ -132,7 +182,7 @@ class ApiFriend: ObservableObject {
         return "\(split[1]) \(timePart[2])-\(timePart[1])-\(timePart[0])"
     }
     
-    func buildWeatherPoints() -> Void {
+    func initialise() -> Void {
         
         let blocker = DispatchSemaphore(value: 0)
         
