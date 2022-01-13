@@ -23,7 +23,7 @@ struct ContentView: View {
             
             LazyHGrid(rows: rows, spacing: 100) {
                 ForEach(apiFriend.getCities()) { city in
-                    LineChartView(data: apiFriend.getTemperatures(forCity: city), title: "2H temperature in \(city.name) (ºC)", rateValue: 1)
+                    LineChartView(data: apiFriend.getTemperatures(forCity: city), title: "Temperature in \(city.name) today (ºC)", rateValue: 1)
                 }
             }.tag(0)
             
